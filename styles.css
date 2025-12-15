@@ -18,7 +18,7 @@ main{max-width:90%;margin:18px auto;padding:0 16px}
 form{display:flex;flex-direction:column;gap:8px ; background: #0097a7;}
 label{font-size:13px;color:var(--muted)}
 input[type=text], input[type=password], select, input{padding:8px;border:1px solid #d6dbe6;border-radius:6px}
-button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:6px;cursor:pointer ;hover ;background:#1e3e6e;transition ;background 0.2s}
+button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:6px;cursor:pointer ;hover ;background:#b1b3b8;transition ;background 0.2s}
 button[disabled]{opacity:0.6;cursor:default}
 .muted{color:var(--muted);font-size:13px}
 .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
