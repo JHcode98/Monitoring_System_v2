@@ -708,7 +708,6 @@ function exportToCSV(){
   URL.revokeObjectURL(url);
 }
 
-
 function downloadTemplate(){
   const headers = ['controlNumber','title','notes','owner','status','winsStatus','createdAt','updatedAt'];
   const example = ['ECOM-20XX-0001','Example Document','Example notes','Alice','Revision','Pending for Approve','',''];
