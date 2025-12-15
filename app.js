@@ -680,22 +680,47 @@ function updateClock(){
 }
 
 // CSV export/import
-function csvEscape(field){
-  if(field == null) return '""';
-  const s = String(field);
-  if(/[,\"\n]/.test(s)){
-    return '"' + s.replace(/"/g, '""') + '"';
-  }
-  return '"' + s + '"';
+
+function formatDate(timestamp) {
+  if (!timestamp) return '';
+  const date = new Date(Number(timestamp));
+  // Example: "2025-12-16 00:40"
+  return date.toLocaleString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 }
 
-function exportToCSV(){
-  const headers = ['controlNumber','title','notes','owner','status','winsStatus','createdAt','updatedAt'];
+function exportToCSV() {
+  const headers = [
+    'controlNumber',
+    'title',
+    'notes',
+    'owner',
+    'status',
+    'winsStatus',
+    'createdAt',
+    'updatedAt'
+  ];
   const lines = [headers.join(',')];
+
   docs.forEach(d => {
-    const row = [d.controlNumber, d.title, d.notes || '', d.owner || '', d.status || '', d.winsStatus || '', d.createdAt || '', d.updatedAt || ''];
+    const row = [
+      d.controlNumber,
+      d.title,
+      d.notes || '',
+      d.owner || '',
+      d.status || '',
+      d.winsStatus || '',
+      formatDate(d.createdAt),   // format here
+      formatDate(d.updatedAt)    // format here
+    ];
     lines.push(row.map(csvEscape).join(','));
   });
+
   const csv = lines.join('\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
@@ -707,6 +732,10 @@ function exportToCSV(){
   a.remove();
   URL.revokeObjectURL(url);
 }
+
+
+
+
 
 function downloadTemplate(){
   const headers = ['controlNumber','title','notes','owner','status','winsStatus','createdAt','updatedAt'];
@@ -788,10 +817,7 @@ function importFromCSVText(text){
     const winsStatus = (row[mapIndex['winsStatus']] || 'Pending for Approve').trim();
     const createdAtRaw = row[mapIndex['createdAt']];
     const updatedAtRaw = row[mapIndex['updatedAt']];
-    
-    import { format } from 'date-fns';
-    console.log(format(new Date(createdAt), 'yyyy-MM-dd HH:mm'));
-
+    const createdAt = createdAtRaw ? Number(createdAtRaw) : Date.now();
     const updatedAt = updatedAtRaw ? Number(updatedAtRaw) : Date.now();
     const doc = { controlNumber, title, notes, owner, status, winsStatus, createdAt, updatedAt };
     parsed.push(doc);
