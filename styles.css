@@ -87,7 +87,7 @@ footer{max-width:980px;margin:6px auto;padding:6px 16px;color:var(--muted)}
 
 /* Column widths for the documents table (Control, Title, Notes, Owner, Status, WINS, Created, Updated, Age, Actions) */
 
-#docs-table th:nth-child(1), #docs-table td:nth-child(1){width:200px;max-width:200px} 
+#docs-table th:nth-child(1), #docs-table td:nth-child(1){width:180px;max-width:180px} 
 #docs-table th:nth-child(2), #docs-table td:nth-child(2){width:220px;max-width:220px}
 #docs-table th:nth-child(3), #docs-table td:nth-child(3){width:200px;max-width:200px}
 #docs-table th:nth-child(4), #docs-table td:nth-child(4){width:120px;max-width:120px}
