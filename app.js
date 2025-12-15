@@ -788,18 +788,10 @@ function importFromCSVText(text){
     const winsStatus = (row[mapIndex['winsStatus']] || 'Pending for Approve').trim();
     const createdAtRaw = row[mapIndex['createdAt']];
     const updatedAtRaw = row[mapIndex['updatedAt']];
-    function formatDate(timestamp) {
-    const date = new Date(timestamp);
-    return date.toLocaleString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-    });
-}
+    
+    import { format } from 'date-fns';
+    console.log(format(new Date(createdAt), 'yyyy-MM-dd HH:mm'));
 
-console.log(formatDate(createdAt));
     const updatedAt = updatedAtRaw ? Number(updatedAtRaw) : Date.now();
     const doc = { controlNumber, title, notes, owner, status, winsStatus, createdAt, updatedAt };
     parsed.push(doc);
