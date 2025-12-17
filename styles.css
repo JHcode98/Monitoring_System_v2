@@ -15,7 +15,7 @@ header h1{margin:0;font-size:18px}
 .clock{font-size:13px;color:var(--muted);padding:6px 10px;border-radius:6px;background:rgba(39,82,167,0.05)}
 main{max-width:90%;margin:18px auto;padding:0 16px}
 .card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 1px 3px rgba(20,30,60,0.06);margin-bottom:12px}
-form{width: 100%;
+form{
     color: #fff;
     border: none;
     outline: none;
@@ -27,8 +27,8 @@ form{width: 100%;
     margin: 25px 0;
     background: #f3f6f7;
     transition: 0.2s ease;
-    width: 14px;
-    height: 14px;
+    width: 36px;
+    height: 24px;
     margin-right: 7px; }
 
 label{font-size:13px;color:var(--muted)}
