@@ -15,7 +15,7 @@ header h1{margin:0;font-size:18px}
 .clock{font-size:13px;color:var(--muted);padding:6px 10px;border-radius:6px;background:rgba(39,82,167,0.05)}
 main{max-width:90%;margin:18px auto;padding:0 16px}
 .card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 1px 3px rgba(20,30,60,0.06);margin-bottom:12px}
-form{max-width:50% padding:14px}
+form{max-width:90% padding:14px}
 label{font-size:13px;color:var(--muted)}
 input[type=text], input[type=password], select, input{padding:8px;border:1px solid #d6dbe6;border-radius:6px}
 button{background:var(--accent);color:#f4f7f8;border:0;padding:8px 12px;border-radius:6px;cursor:pointer}
