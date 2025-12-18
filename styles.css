@@ -26,7 +26,7 @@ button[disabled]{opacity:0.6;cursor:default}
 .muted{color:var(--muted);font-size:13px}
 .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .controls .right{display:flex;gap:8px;align-items:center}
-#docs-table{width:100%;border-collapse:collapse}
+#docs-table{width:100%;border-collapse:collapse ; margin-right: auto;}
 #docs-table th, #docs-table td{padding:8px;border-bottom:1px solid #eef2f6;text-align:left}
 #docs-table th{background:#fbfdff;font-weight:600}
 .form-actions{display:flex;gap:8px}
