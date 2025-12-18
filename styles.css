@@ -15,6 +15,8 @@ header h1{margin:0;font-size:18px}
 .clock{font-size:13px;color:var(--muted);padding:6px 10px;border-radius:6px;background:rgba(39,82,167,0.05)}
 main{max-width:90%;margin:18px auto;padding:0 16px}
 .card{background:var(--card);padding:4px;border-radius:8px;box-shadow:0 1px 3px rgba(6, 212, 212, 0.06);margin-bottom:2px}
+#login-section{max-width:400px;margin:0 auto;padding:20px}
+#results{overflow-x:auto}
 form{display:flex;flex-direction:column;gap:10px}
 label{font-size:13px;color:var(--muted)}
 input[type=text], input[type=password], select, input{padding:8px;border:1px solid #d6dbe6;border-radius:6px}
@@ -24,7 +26,7 @@ button[disabled]{opacity:0.6;cursor:default}
 .muted{color:var(--muted);font-size:13px}
 .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .controls .right{display:flex;gap:8px;align-items:center}
-#docs-table{width:100%;border-collapse:collapse}
+#docs-table{width:100%;border-collapse:collapse;table-layout:fixed}
 #docs-table th, #docs-table td{padding:8px;border-bottom:1px solid #eef2f6;text-align:left}
 #docs-table th{background:#fbfdff;font-weight:600}
 .form-actions{display:flex;gap:8px}
@@ -79,6 +81,9 @@ footer{max-width:980px;margin:6px auto;padding:6px 16px;color:var(--muted)}
 .age-ov-count{width:36px;text-align:right;color:var(--muted)}
 .age-ov-row button{margin-left:6px;background:#fff;color:var(--accent);border:1px solid #e0e6f0;padding:4px 6px;border-radius:6px}
 .age-ov-row.selected{outline:2px solid rgba(39,82,167,0.08);background:#f6faff}
+
+/* Total documents display */
+.total-docs-display{font-size:48px;font-weight:700;text-align:center;color:var(--accent);padding:20px 0}
 
 /* Notes cell: truncate long notes and provide tooltip */
 .notes-cell{max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
