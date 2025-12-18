@@ -107,6 +107,7 @@ function renderDocs(filter){
     `;
     docsTableBody.appendChild(tr);
   });
+  renderTotalDocs();
   renderStatusChart();
   renderWinsChart();
   renderAgeOverview();
@@ -228,6 +229,12 @@ function setAgeStatusFilter(status){
 
 const clearAgeFilterBtn = document.getElementById('clear-age-filter');
 clearAgeFilterBtn && clearAgeFilterBtn.addEventListener('click', () => { setAgeStatusFilter(null); });
+
+function renderTotalDocs(){
+  const container = document.getElementById('total-docs');
+  if(!container) return;
+  container.textContent = docs.length;
+}
 
 function computeStatusCounts(){
   const counts = { 'Revision':0, 'Routing':0, 'Approved':0, 'Rejected':0 };
@@ -649,7 +656,18 @@ function datetimeLocalToMs(val){
   return d.getTime();
 }
 
-// Initialize UI — keep login visible by default
+function formatDateForCSV(ms){
+  if(!ms) return '';
+  const d = new Date(Number(ms));
+  const pad = n => String(n).padStart(2,'0');
+  const yyyy = d.getFullYear();
+  const mm = pad(d.getMonth()+1);
+  const dd = pad(d.getDate());
+  const hh = pad(d.getHours());
+  const min = pad(d.getMinutes());
+  const ss = pad(d.getSeconds());
+  return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+}
 document.addEventListener('DOMContentLoaded', () => {
   // If you want auto-login during development, uncomment:
   // showDashboard(DEMO_USER.username);
@@ -693,7 +711,7 @@ function exportToCSV(){
   const headers = ['controlNumber','title','notes','owner','status','winsStatus','createdAt','updatedAt'];
   const lines = [headers.join(',')];
   docs.forEach(d => {
-    const row = [d.controlNumber, d.title, d.notes || '', d.owner || '', d.status || '', d.winsStatus || '', d.createdAt || '', d.updatedAt || ''];
+    const row = [d.controlNumber, d.title, d.notes || '', d.owner || '', d.status || '', d.winsStatus || '', formatDateForCSV(d.createdAt), formatDateForCSV(d.updatedAt)];
     lines.push(row.map(csvEscape).join(','));
   });
   const csv = lines.join('\n');
